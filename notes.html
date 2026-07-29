@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>कक्षा 12 अध्ययन सामग्री - हिंदी माध्यम</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .status-card {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .status-free {
+            background-color: #ffeeba;
+            color: #856404;
+        }
+
+        .status-subscribed {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .btn-pay {
+            background-color: #5f259f;
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-pay:hover {
+            background-color: #4b1d7f;
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            padding: 0.7rem 1.2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .subject-section {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .subject-title {
+            color: #1e3c72;
+            border-bottom: 2px solid #1e3c72;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .chapter-list {
+            list-style: none;
+        }
+
+        .chapter-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .chapter-item:last-child {
+            border-bottom: none;
+        }
+
+        .chapter-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn {
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-view {
+            background-color: #17a2b8;
+            color: white;
+        }
+
+        .btn-download {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .btn-locked {
+            background-color: #6c757d;
+            color: white;
+            cursor: not-allowed;
+            opacity: 0.75;
+        }
+
+        /* Modal Popup */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            max-width: 450px;
+            width: 90%;
+            text-align: center;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .instruction-box {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 0.9rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            text-align: left;
+            font-size: 0.9rem;
+            color: #856404;
+            line-height: 1.5;
+        }
+
+        .phone-display {
+            background: #eef2ff;
+            border: 2px dashed #1e3c72;
+            padding: 0.8rem;
+            border-radius: 8px;
+            margin: 0.8rem 0;
+        }
+
+        .phone-number {
+            font-size: 1.6rem;
+            color: #1e3c72;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-top: 3px;
+        }
+
+        .code-input {
+            width: 100%;
+            padding: 0.8rem;
+            margin: 10px 0;
+            font-size: 1.1rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+            letter-spacing: 4px;
+            font-weight: bold;
+        }
+
+        .btn-unlock-code {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            width: 100%;
+        }
+
+        .close-btn {
+            background: #dc3545;
+            color: white;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>कक्षा 12 अध्ययन सामग्री (हिंदी माध्यम)</h1>
+        <p>भौतिक विज्ञान | रसायन विज्ञान | गणित</p>
+    </header>
+
+    <div class="container">
+        <div class="status-card">
+            <div>
+                <h3>आपका प्लान: <span id="status-text" class="status-badge status-free">फ़्री यूज़र</span></h3>
+                <p id="status-desc" style="font-size: 0.9rem; margin-top: 5px;">आप केवल हर सब्जेक्ट का Chapter 1 देख सकते हैं।</p>
+            </div>
+            <div id="action-btn-container">
+                <button class="btn-pay" onclick="openPaymentModal()">सब्सक्रिप्शन खरीदें (रु. 49)</button>
+            </div>
+        </div>
+
+        <!-- Subject 1: Physics -->
+        <div class="subject-section">
+            <h2 class="subject-title">भौतिक विज्ञान (Physics)</h2>
+            <ul class="chapter-list">
+                <li class="chapter-item">
+                    <span>अध्याय 1: वैद्युत आवेश तथा क्षेत्र</span>
+                    <div class="chapter-actions">
+                        <button class="btn btn-view" onclick="openFile('pdf/physics-ch1.pdf')">देखें</button>
+                        <button class="btn btn-locked download-btn" data-path="pdf/physics-ch1.pdf" onclick="handleDownload(this)">डाउनलोड 🔒</button>
+                    </div>
+                </li>
+                <li class="chapter-item">
+                    <span>अध्याय 2: स्थिरवैद्युत विभव तथा धारिता</span>
+                    <div class="chapter-actions">
+                        <button class="btn btn-locked view-btn" data-path="pdf/physics-ch2.pdf" onclick="handleView(this)">देखें 🔒</button>
+                        <button class="btn btn-locked download-btn" data-path="pdf/physics-ch2.pdf" onclick="handleDownload(this)">डाउनलोड 🔒</button>
+                    </div>
+                </li>
+                <li class="chapter-item">
+                    <span>अध्याय 3: विद्युत धारा</span>
+                    <div class="chapter-actions">
+                        <button class="btn btn-locked view-btn" data-path="pdf/physics-ch3.pdf" onclick="handleView(this)">देखें 🔒</button>
+                        <button class="btn btn-locked download-btn" data-path="pdf/physics-ch3.pdf" onclick="handleDownload(this)">डाउनलोड 🔒</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Subject 2: Chemistry -->
+        <div class="subject-section">
+            <h2 class="subject-title">रसायन विज्ञान (Chemistry)</h2>
+            <ul class="chapter-list">
+                <li class="chapter-item">
+                    <span>अध्याय 1: विलयन (Solutions)</span>
+                    <div class="chapter-actions">
+                        <button class="btn btn-view" onclick="openFile('pdf/chem-ch1.pdf')">देखें</button>
+                        <button class="btn btn-locked download-btn" data-path="pdf/chem-ch1.pdf" onclick="handleDownload(this)">डाउनलोड 🔒</button>
+                    </div>
+                </li>
+                <li class="chapter-item">
+                    <span>अध्याय 2: वैद्युतरसायन (Electrochemistry)</span>
+                    <div class="chapter-actions">
+                        <button class="btn btn-locked view-btn" data-path="pdf/chem-ch2.pdf" onclick="handleView(this)">देखें 🔒</button>
+                        <button class="btn btn-locked download-btn" data-path="pdf/chem-ch2.pdf" onclick="handleDownload(this)">डाउनलोड 🔒</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Subject 3: Mathematics -->
+        <div class="subject-section">
+            <h2 class="subject-title">गणित (Mathematics)</h2>
+            <ul class="chapter-list">
+                <li class="chapter-item">
+                    <span>अध्याय 1: संबंध एवं फलन</span>
+                    <div class="chapter-actions">
+                        <button class="btn btn-view" onclick="openFile('pdf/math-ch1.pdf')">देखें</button>
+                        <button class="btn btn-locked download-btn" data-path="pdf/math-ch1.pdf" onclick="handleDownload(this)">डाउनलोड 🔒</button>
+                    </div>
+                </li>
+                <li class="chapter-item">
+                    <span>अध्याय 2: प्रतिलोम त्रिकोणमितीय फलन</span>
+                    <div class="chapter-actions">
+                        <button class="btn btn-locked view-btn" data-path="pdf/math-ch2.pdf" onclick="handleView(this)">देखें 🔒</button>
+                        <button class="btn btn-locked download-btn" data-path="pdf/math-ch2.pdf" onclick="handleDownload(this)">डाउनलोड 🔒</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Payment Modal Popup -->
+    <div class="modal" id="paymentModal">
+        <div class="modal-content">
+            <h3 style="color:#1e3c72; margin-bottom: 0.8rem;">भुगतान एवं अनलॉक जानकारी</h3>
+
+            <div class="instruction-box">
+                📢 दिए गए नंबर पर ₹49 का पेमेंट करके उसका स्क्रीनशॉट इसी नंबर के WhatsApp पर भेजें।
+            </div>
+            
+            <div class="phone-display">
+                <p style="font-size: 0.85rem; color: #555;">Google Pay / PhonePe / Paytm / UPI Number:</p>
+                <div class="phone-number">8964870980</div>
+            </div>
+
+            <a id="whatsapp-link" href="#" target="_blank" class="btn-whatsapp">
+                WhatsApp पर स्क्रीनशॉट भेजें 💬
+            </a>
+
+            <div style="border-top: 1px solid #ddd; padding-top: 15px; margin-top: 15px;">
+                <p style="font-size: 0.9rem; font-weight: bold;">WhatsApp से प्राप्त 6 अंकों का सीक्रेट कोड डालें:</p>
+                <input type="text" id="secretCodeInput" class="code-input" maxlength="6" placeholder="******">
+                <button class="btn-unlock-code" onclick="verifyCode()">अनलॉक करें ✅</button>
+            </div>
+
+            <button class="btn close-btn" onclick="closePaymentModal()" style="width: 100%;">बंद करें</button>
+        </div>
+    </div>
+
+    <script>
+        let isSubscribed = false;
+        const myPhoneNumber = "8964870980";
+        const SECRET_UNLOCK_CODE = "942518"; 
+
+        window.onload = function() {
+            const waMsg = encodeURIComponent("नमस्ते, मैंने ₹49 पेमेंट कर दिया है। यह रहा स्क्रीनशॉट।");
+            document.getElementById('whatsapp-link').href = `https://wa.me/91${myPhoneNumber}?text=${waMsg}`;
+
+            if (localStorage.getItem('isSubscribed') === 'true') {
+                activateSubscriptionUI();
+            }
+        };
+
+        function openPaymentModal() {
+            document.getElementById('paymentModal').style.display = 'flex';
+        }
+
+        function closePaymentModal() {
+            document.getElementById('paymentModal').style.display = 'none';
+        }
+
+        function verifyCode() {
+            const userCode = document.getElementById('secretCodeInput').value.trim();
+            if (userCode === SECRET_UNLOCK_CODE) {
+                localStorage.setItem('isSubscribed', 'true');
+                activateSubscriptionUI();
+                closePaymentModal();
+                alert("बधाई हो! सभी चैप्टर्स सफलतापूर्वक अनलॉक हो गए हैं।");
+            } else {
+                alert("गलत कोड! कृपया WhatsApp से सही सीक्रेट कोड प्राप्त करें।");
+            }
+        }
+
+        function handleView(button) {
+            if (isSubscribed) {
+                const path = button.getAttribute('data-path');
+                openFile(path);
+            } else {
+                openPaymentModal();
+            }
+        }
+
+        function handleDownload(button) {
+            if (isSubscribed) {
+                const path = button.getAttribute('data-path');
+                downloadFile(path);
+            } else {
+                openPaymentModal();
+            }
+        }
+
+        function openFile(filePath) {
+            window.open(filePath, '_blank');
+        }
+
+        function downloadFile(filePath) {
+            if (isSubscribed) {
+                const a = document.createElement('a');
+                a.href = filePath;
+                a.download = filePath.split('/').pop();
+                a.target = '_blank';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            } else {
+                openPaymentModal();
+            }
+        }
+
+        function activateSubscriptionUI() {
+            isSubscribed = true;
+            document.getElementById('status-text').innerText = "प्रीमियम सब्सक्राइबर";
+            document.getElementById('status-text').className = "status-badge status-subscribed";
+            document.getElementById('status-desc').innerText = "बधाई हो! आपके लिए सभी चैप्टर्स अनलॉक कर दिए गए हैं।";
+            
+            document.getElementById('action-btn-container').innerHTML = `
+                <span class="status-badge status-subscribed" style="font-size: 1rem;">
+                    सब्सक्रिप्शन एक्टिव ✅
+                </span>
+            `;
+
+            const lockedButtons = document.querySelectorAll('.btn-locked');
+            lockedButtons.forEach(button => {
+                button.classList.remove('btn-locked');
+                if (button.classList.contains('view-btn')) {
+                    button.classList.add('btn-view');
+                    button.innerText = 'देखें';
+                } else if (button.classList.contains('download-btn')) {
+                    button.classList.add('btn-download');
+                    button.innerText = 'डाउनलोड';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
