@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>कक्षा 12वीं - भौतिक विज्ञान, रसायन विज्ञान एवं गणित नोट्स</title>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- External CSS File -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>कक्षा 12वीं अध्ययन सामग्री (NCERT)</h1>
+    <p>भौतिक विज्ञान, रसायन विज्ञान एवं गणित के नोट्स</p>
+  </header>
+
+  <div class="main-container">
+    
+    <!-- Tab Navigation Buttons -->
+    <div class="tabs-nav">
+      <button class="tab-btn active" onclick="switchTab('physics', this)">⚡ भौतिक विज्ञान (Physics)</button>
+      <button class="tab-btn" onclick="switchTab('chemistry', this)">🧪 रसायन विज्ञान (Chemistry)</button>
+      <button class="tab-btn" onclick="switchTab('maths', this)">📐 गणित (Maths)</button>
+    </div>
+
+    <!-- PHYSICS SECTION -->
+    <div id="physics" class="subject-section active">
+      <div class="subject-banner physics-banner">
+        <div class="subject-title">
+          <h2>भौतिक विज्ञान (12th Physics)</h2>
+          <span class="badge-notes">📝 Notes (हस्तलिखित)</span>
+        </div>
+      </div>
+
+      <!-- SINGLE CHAPTER FOR READING -->
+      <div class="demo-chapter-box">
+        <span class="demo-badge">ऑनलाइन पढ़ने के लिए उपलब्ध अध्याय</span>
+        <div class="chapter-card">
+          <div class="chapter-info">
+            <div class="chapter-num">1</div>
+            <div class="chapter-name">अध्याय 1: वैद्युत आवेश तथा क्षेत्र (Electric Charges and Fields)</div>
+          </div>
+          <button class="btn-view" onclick="viewPDF('pdfs/physics_ch1.pdf')">👁️ View PDF (पढ़ें)</button>
+        </div>
+      </div>
+
+      <!-- BIG DOWNLOAD BOX FOR ALL CHAPTERS -->
+      <div class="big-download-box">
+        <h3>सभी अध्याय (अध्याय 1 से 14) डाउनलोड करें</h3>
+        <p>भौतिक विज्ञान के सभी अध्यायों के संपूर्ण हस्तलिखित नोट्स एक ही फ़ाइल में डाउनलोड करें।</p>
+        <button class="btn-download-main" onclick="downloadPDF('pdfs/physics_complete.pdf')">
+          📥 डाउनलोड सभी अध्याय PDF
+        </button>
+      </div>
+    </div>
+    
+    <!-- CHEMISTRY SECTION -->
+    <div id="chemistry" class="subject-section">
+      <div class="subject-banner chemistry-banner">
+        <div class="subject-title">
+          <h2>रसायन विज्ञान (12th Chemistry)</h2>
+          <span class="badge-notes">📝 Notes (हस्तलिखित)</span>
+        </div>
+      </div>
+
+      <!-- SINGLE CHAPTER FOR READING -->
+      <div class="demo-chapter-box">
+        <span class="demo-badge">ऑनलाइन पढ़ने के लिए उपलब्ध अध्याय</span>
+        <div class="chapter-card">
+          <div class="chapter-info">
+            <div class="chapter-num">1</div>
+            <div class="chapter-name">अध्याय 1: विलयन (Solutions)</div>
+          </div>
+          <button class="btn-view" onclick="viewPDF('pdfs/chem_ch1.pdf')">👁️ View PDF (पढ़ें)</button>
+        </div>
+      </div>
+
+      <!-- BIG DOWNLOAD BOX FOR ALL CHAPTERS -->
+      <div class="big-download-box">
+        <h3>सभी अध्याय (अध्याय 1 से 10) डाउनलोड करें</h3>
+        <p>रसायन विज्ञान के सभी अध्यायों के संपूर्ण हस्तलिखित नोट्स एक ही फ़ाइल में डाउनलोड करें।</p>
+        <button class="btn-download-main" onclick="downloadPDF('pdfs/chemistry_complete.pdf')">
+          📥 डाउनलोड सभी अध्याय PDF
+        </button>
+      </div>
+    </div>
+
+    <!-- MATHS SECTION -->
+    <div id="maths" class="subject-section">
+      <div class="subject-banner maths-banner">
+        <div class="subject-title">
+          <h2>गणित (12th Mathematics)</h2>
+          <span class="badge-notes">📝 Notes (सूत्र व हल)</span>
+        </div>
+      </div>
+
+      <!-- SINGLE CHAPTER FOR READING -->
+      <div class="demo-chapter-box">
+        <span class="demo-badge">ऑनलाइन पढ़ने के लिए उपलब्ध अध्याय</span>
+        <div class="chapter-card">
+          <div class="chapter-info">
+            <div class="chapter-num">1</div>
+            <div class="chapter-name">अध्याय 1: संबंध एवं फलन (Relations & Functions)</div>
+          </div>
+          <button class="btn-view" onclick="viewPDF('pdfs/maths_ch1.pdf')">👁️ View PDF (पढ़ें)</button>
+        </div>
+      </div>
+
+      <!-- BIG DOWNLOAD BOX FOR ALL CHAPTERS -->
+      <div class="big-download-box">
+        <h3>सभी अध्याय (अध्याय 1 से 13) डाउनलोड करें</h3>
+        <p>गणित के सभी अध्यायों के संपूर्ण सूत्र व नोट्स एक ही फ़ाइल में डाउनलोड करें।</p>
+        <button class="btn-download-main" onclick="downloadPDF('pdfs/maths_complete.pdf')">
+          📥 डाउनलोड सभी अध्याय PDF
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- External JavaScript File -->
+  <script src="main.js"></script>
+
+</body>
+</html>
